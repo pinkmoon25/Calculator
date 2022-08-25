@@ -2,7 +2,7 @@ const display = document.querySelector('.input-display');
 const numBtn = document.querySelectorAll('input');
 const clearBtn = document.querySelector('.clear');
 const result = document.querySelector('.result-display');
-const operators = document.querySelector('.operators');
+const operators = document.querySelector('.operator');
 const equalBtn = document.querySelector('.equal');
 
 let store; 
@@ -18,6 +18,7 @@ displayInput();
 
 clearBtn.addEventListener('click', ()=>{
   display.innerText = '';
+  result.innerText = '';
 });
 
 function add(x, y){
@@ -44,25 +45,25 @@ function operate(operator){
       val = store.split('+');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${add(val[0], val[1])}`;
-      display.innerText = `${add(val[0], val[1])}`;
+      display.innerText = '';
       break;
       case 8722:
       val = store.split('−');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${subtract(val[0], val[1])}`;
-      display.innerText = `${subtract(val[0], val[1])}`;
+      display.innerText = '';
       break;
       case 215:
       val = store.split('×');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${multiply(val[0], val[1])}`;
-      display.innerText = `${multiply(val[0], val[1])}`;
+      display.innerText = '';
       break;
       case 247:
       val = store.split('÷');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${divide(val[0], val[1])}`;
-      display.innerText = `${divide(val[0], val[1])}`;
+      display.innerText = '';
       break; 
     }
   }  
