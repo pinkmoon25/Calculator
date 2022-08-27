@@ -1,6 +1,7 @@
 const display = document.querySelector('.input-display');
 const numBtn = document.querySelectorAll('input');
 const clearBtn = document.querySelector('.clear');
+const delBtn = document.querySelector('.delete');
 const result = document.querySelector('.result-display');
 const operators = document.querySelector('.operator');
 const equalBtn = document.querySelector('.equal');
@@ -15,11 +16,6 @@ function displayInput(){
 };
 
 displayInput();
-
-clearBtn.addEventListener('click', ()=>{
-  display.innerText = '';
-  result.innerText = '';
-});
 
 function add(x, y){
   return parseInt(x) + parseInt(y);
@@ -37,7 +33,7 @@ function divide(x, y){
   return parseInt(x) / parseInt(y);
 };
 
-function operate(operator){
+function operate(){
   let val;
   for(let i=0; i<store.length; i++){
     switch(store[i].charCodeAt()){
@@ -68,6 +64,17 @@ function operate(operator){
     }
   }  
 };
+
+clearBtn.addEventListener('click', ()=>{
+  display.innerText = '';
+  result.innerText = '';
+});
+
+delBtn.addEventListener('click', ()=>{
+let result = store.replace(store.charAt(store.length-1), '');
+display.innerText = result;
+store = result;
+});
 
 operators.addEventListener('click', operate);
 equalBtn.addEventListener('click', operate);
