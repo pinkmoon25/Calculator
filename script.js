@@ -3,7 +3,7 @@ const numBtn = document.querySelectorAll('input');
 const clearBtn = document.querySelector('.clear');
 const delBtn = document.querySelector('.delete');
 const result = document.querySelector('.result-display');
-const operators = document.querySelector('.operator');
+const operators = document.querySelectorAll('.operator');
 const equalBtn = document.querySelector('.equal');
 
 let store; 
@@ -35,31 +35,36 @@ function divide(x, y){
 
 function operate(){
   let val;
+  if(isNaN(store[0])) {
+    let result = store.replace(store[0], '');
+    display.innerText = result;
+    store = result;
+  };
   for(let i=0; i<store.length; i++){
     switch(store[i].charCodeAt()){
       case 43:
       val = store.split('+');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${add(val[0], val[1])}`;
-      display.innerText = '';
+      display.innerText = `${add(val[0], val[1])}`;
       break;
       case 8722:
       val = store.split('−');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${subtract(val[0], val[1])}`;
-      display.innerText = '';
+      display.innerText = `${subtract(val[0], val[1])}`;
       break;
       case 215:
       val = store.split('×');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${multiply(val[0], val[1])}`;
-      display.innerText = '';
+      display.innerText = `${multiply(val[0], val[1])}`;
       break;
       case 247:
       val = store.split('÷');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${divide(val[0], val[1])}`;
-      display.innerText = '';
+      display.innerText = `${divide(val[0], val[1])}`;
       break; 
     }
   }  
@@ -76,5 +81,5 @@ display.innerText = result;
 store = result;
 });
 
-operators.addEventListener('click', operate);
+operators.forEach(operator=> operator.addEventListener('click', operate))
 equalBtn.addEventListener('click', operate);
