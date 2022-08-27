@@ -14,13 +14,20 @@ body {
 
 .calculator {
   width: 350px;
-  border: 16px solid rgb(13, 28, 59);
+  border: 22px solid rgb(38, 88, 191);
+  border-radius: 5px;
 }
 
 input {
   padding: 12px;
+  color: #fff;
+  background-color: #6495ed;
   font-weight: 600;
   font-size: 1.5em;
+}
+
+.operator {
+  background-color: #663399;
 }
 
 .input {
@@ -37,13 +44,15 @@ input {
 
 .display > * {
   display: block;
-  height: 37px;
+  height: 28px;
   padding: 5px;
 }
 
 .clear, .delete {
-  width: 49%;
+  width: 173px;
   padding: 8px;
   font-weight: 600;
   font-size: 1.2em;
+  color: #fff;
+  background-color: #663399;
 }
