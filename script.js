@@ -18,19 +18,19 @@ function displayInput(){
 displayInput();
 
 function add(x, y){
-  return parseInt(x) + parseInt(y);
+  return parseFloat(x) + parseFloat(y);
 };
 
 function subtract(x, y){
-  return parseInt(x) - parseInt(y);
+  return parseFloat(x) - parseFloat(y);
 };
 
 function multiply(x, y){
-  return parseInt(x) * parseInt(y);
+  return parseFloat(x) * parseFloat(y);
 };
 
 function divide(x, y){
-  return parseInt(x) / parseInt(y);
+  return parseFloat(x) / parseFloat(y);
 };
 
 function operate(){
@@ -46,26 +46,26 @@ function operate(){
       val = store.split('+');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${add(val[0], val[1])}`;
-      display.innerText = `${add(val[0], val[1])}`;
+       display.innerText = '';
       break;
       case 8722:
       val = store.split('−');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${subtract(val[0], val[1])}`;
-      display.innerText = `${subtract(val[0], val[1])}`;
+       display.innerText = '';
       break;
       case 215:
       val = store.split('×');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${multiply(val[0], val[1])}`;
-      display.innerText = `${multiply(val[0], val[1])}`;
+       display.innerText = '';
       break;
       case 247:
       val = store.split('÷');
       if(val[0] === '' || val[1] === '') return;
       result.innerText = `${divide(val[0], val[1])}`;
-      display.innerText = `${divide(val[0], val[1])}`;
-      break; 
+      display.innerText = '';
+      break;
     }
   }  
 };
@@ -81,5 +81,5 @@ display.innerText = result;
 store = result;
 });
 
-operators.forEach(operator=> operator.addEventListener('click', operate))
+operators.forEach(operator=> operator.addEventListener('click',operate));
 equalBtn.addEventListener('click', operate);
